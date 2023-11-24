@@ -1,0 +1,308 @@
+---
+title: "Sleep restriction affects vigilant attention:"
+subtitle: "Behavioural and neural correlates"
+author: "Deborah Apthorp & Lourdes Machin"
+format: 
+  revealjs: 
+    theme: sky
+    incremental: true
+    preview-links: auto
+    slide-number: true
+    logo: images/UNE_logo.png
+    css: logo.css
+editor: source
+---
+
+## Background
+
+-   These data were originally collected as part of an Honours project by Lucienne Shenfield
+-   Now working as a clinical psychologist specialising in sleep
+-   Some of this work is now published
+-   What we'll mainly talk about is the work of another Honours student Lourdes Machin
+
+::: footer
+Shenfield, L., Beanland, V., Filtness, A., & Apthorp, D. (2020).
+
+The impact of sleep loss on sustained and transient attention: An EEG study. [PeerJ](https://doi.org/10.7717/peerj.8960), 8, e8960.
+:::
+
+## Background
+
+-   CNS centres regulating sleep overlap with those regulating attention & arousal
+-   Disrupting sleep disrupts attention
+-   But what is attention?
+-   Catch-all term for multiple processes
+-   Here we focus on sustained attention/vigilance
+
+::: {.fragment .fade-in}
+"Attention is psychology's weapon of mass explanation" - David Burr, personal communication
+:::
+
+## Participants {.smaller}
+
+-   Inclusion criteria: 18 -- 65 years; regular sleep 7-8 h/night
+
+-   Exclusion criteria:
+
+    -   Regular smokers
+    -   Shift work
+    -   High caffeine consumption (\> 5 cups/day)
+    -   Diagnosed ADD or sleep problems
+    -   Recent head injury or history of seizures
+
+-   Final sample: 25 participants (15 females)
+
+    -   Age: 21 -- 55 (M -- 24.79 years, SD = 6.82)
+
+## Experimental design
+
+-   Within-subjects: Normal sleep (NS) and Sleep-restricted (SR)
+-   Sleep restriction: Delay bedtime by 3 hrs, set alarm for 5 hrs later
+-   Counterbalanced order
+-   Sleep monitoring: Sleep diary and FitBits
+-   Tasks: Attentional Blink (AB) and Psychomotor Vigilance Task (PVT)
+-   EEG: Resting state and ERP (during tasks)
+
+## Sleep restriction
+
+```{r sleep-restriction,  dev.args = list(bg = 'transparent')}
+#| echo: false
+#| fig-height: 5
+#| fig-cap: "Minutes of Sleep: Diary and FitBit"
+#| cap-location: top
+library(readr)
+library(tidyverse)
+library(dplyr)
+library(raincloudplots)
+
+FBdata = read.csv ('Exp2_FitBitDataForR.csv')
+
+NS_diary <- filter(FBdata, Condition =="NS", Measure =="Diary")
+NS_fitbit <- filter(FBdata, Condition =="NS", Measure =="FitBit")
+SR_diary <- filter(FBdata, Condition =="SR", Measure =="Diary")
+SR_fitbit <- filter(FBdata, Condition =="SR", Measure =="FitBit")
+
+df_2x2_path <- data_2x2(
+  
+  array_1 = NS_diary$Minutes.asleep,
+  array_2 = NS_fitbit$Minutes.asleep,
+  array_3 = SR_diary$Minutes.asleep,
+  array_4 = SR_fitbit$Minutes.asleep,
+
+  labels = (c('Diary','FitBit')),
+  jit_distance = .09,
+  jit_seed = 321,
+  spread_x_ticks = FALSE) 
+
+SleepDataPlot <- raincloud_2x2_repmes(
+  data = df_2x2_path,
+  colors = (c('aquamarine3', 'mediumorchid', 'aquamarine3', 'mediumorchid')),
+  fills = (c('aquamarine3', 'mediumorchid', 'aquamarine3', 'mediumorchid')),
+  size = 1,
+  alpha = .6,
+  spread_x_ticks = FALSE) +
+  
+  scale_x_continuous(breaks=c(1,2), labels=c("NS", "SR"), limits=c(0, 3)) +
+  xlab("Sleep Condition") + 
+  ylab("Minutes Asleep") +
+  theme_classic()
+
+SleepDataPlot<- SleepDataPlot  + theme(
+    panel.background = element_rect(fill='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent') #transparent legend panel
+  )
+
+SleepDataPlot
+
+
+```
+
+## Task: Psychomotor Vigilance Task
+
+-   10 minutes long
+-   Participants press a button as soon as they see red numbers appear
+-   Numbers appear at random intervals (2-10s apart)
+-   Reaction time (ms) is measured
+-   Also lapses (\>500ms), false starts (\<100ms)
+-   \~80 trials per session
+
+## EEG
+
+-   Compumedics NuAmps 40-channel EEG system
+-   Electrodes 10/20 system
+-   Electrode maximum impedance: 5 $k\Omega$
+-   Signal recorded at 1000 Hz
+-   NuAmps digital amplifier; Curry 7.0.9 software
+
+## EEG preprocessing
+
+::: columns
+::: {.column width="46%"}
+```{mermaid}
+flowchart TD
+  A[1. Import data, event markers, channel locations into EEGLAB] --> B[2. Down-sample EEG data to 256 Hz]
+  B --> C[3. Apply Finite Impulse Response filter: 1-40 Hz ]
+  C --> D[4. Remove non-relevant channels - EOG, Mastoids]
+  D --> E[5. Manually remove channels with uncommonly high or low power]
+  E --> F[6. Re-reference data to common average]
+ F --> G[7. Interpolate removed electrodes, using spherical interpolation]
+  
+```
+:::
+
+::: {.column width="54%"}
+```{mermaid}
+flowchart TD
+  A(8. Visual inspection of  channel plots. Removal of large artifacts ) --> B(9. Run independent components analysis )
+  B --> C(10. Run ICLabel - Remove muscle and eye IC artifacts )
+  C --> D(11. Remove remaining blink-like ICs with probability between 0.8 and 0.9 )
+  D --> E(12. Extract epochs of 3s length for ERP and time frequency analysis )
+  E --> F[13. Locked to stimulus onset: -1s, +2s ]
+  E --> G[14. Locked to stimulus onset: -1.5s, +1.5s ]
+
+```
+:::
+:::
+
+## Behavioural data
+
+```{r pvt-behavioural, echo = FALSE}
+
+PVTdata = read.csv ('Exp2_KSS_PVT_DataForR.csv')
+
+PVT_NS <- filter(PVTdata, Condition =="NS")
+PVT_SR <- filter(PVTdata, Condition =="SR")
+
+df_1x1 <- data_1x1(
+  
+  array_1 = PVT_NS$Reaction.time,
+  array_2 = PVT_SR$Reaction.time,
+
+  jit_distance = .09,
+  jit_seed = 321) 
+
+PVTDataPlot <- raincloud_1x1_repmes(
+  data = df_1x1,
+  colors = (c('aquamarine3', 'mediumorchid')),
+  fills = (c('aquamarine3', 'mediumorchid')),
+  size = 1,
+  alpha = .6,
+  align_clouds = FALSE) +
+  
+  scale_x_continuous(breaks=c(1,2), labels=c("NS", "SR"), limits=c(0, 3)) +
+  xlab("Sleep Condition") + 
+  ylab("PVT mean reaction time (seconds)") +
+  theme_classic()
+
+PVTDataPlot<- PVTDataPlot  + theme(
+    panel.background = element_rect(fill='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent') #transparent legend panel
+  )
+
+df_1x1_KSS <- data_1x1(
+  
+  array_1 = PVT_NS$KSS.score,
+  array_2 = PVT_SR$KSS.score,
+
+  jit_distance = .09,
+  jit_seed = 321) 
+
+KSSDataPlot <- raincloud_1x1_repmes(
+  data = df_1x1_KSS,
+  colors = (c('aquamarine3', 'mediumorchid')),
+  fills = (c('aquamarine3', 'mediumorchid')),
+  size = 1,
+  alpha = .6,
+  align_clouds = FALSE) +
+  
+  scale_x_continuous(breaks=c(1,2), labels=c("NS", "SR"), limits=c(0, 3)) +
+  xlab("Sleep Condition") + 
+  ylab("Subjective Sleepiness Score") +
+  theme_classic()
+
+KSSDataPlot<- KSSDataPlot  + theme(
+    panel.background = element_rect(fill='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent') #transparent legend panel
+  )
+
+```
+
+```{r PVT_plot, dev.args = list(bg = 'transparent')}
+#| echo: false
+#| fig-height: 5
+#| fig-cap: "Mean reaction times by sleep condition"
+#| cap-location: top
+PVTDataPlot
+```
+
+## Subjective sleepiness
+
+```{r KSS_plot, dev.args = list(bg = 'transparent')}
+#| echo: false
+#| fig-height: 5
+#| fig-cap: "Mean KSS sleepiness ratings by sleep condition"
+#| cap-location: top
+KSSDataPlot
+```
+
+## ERPs
+
+![ERP amplitude differences: ERP Topographic Maps 250-500 ms](images/ERP1.png)
+
+## ERPs - differences - Pz
+
+![Grey bar shows statistically significant differences in amplitude at the start of P3](images/Pz_ERP1.png)
+
+## ERPs - differences - CPz
+
+![Grey bar shows statistically significant differences in amplitude at the start of P3](images/CPz_ERP1.png)
+
+## Source localisation - NS - SR
+
+![eLORETA Source Localisation of Current Source Density Differences (from ERP) between NS and SR](images/sourcelocalisation.png)
+
+## Source localisation - NS - SR
+
+
+
+::: {layout-nrow="1"}
+:::{.fragment .fade-in}
+![328 ms](images/EL328.png)
+:::
+
+:::{.fragment .fade-in}
+![332 ms](images/EL332.png)
+:::
+
+:::{.fragment .fade-in}
+![336 ms](images/EL336.png)
+:::
+:::{.fragment .fade-in}
+![340 ms](images/EL340.png)
+:::
+
+:::
+
+- Best Match - Brodmann area 5, postcentral gyrus, parietal lobe
+
+::: notes
+Using eLORETA, the sources of the differences in ERP amplitude obtained in Analysis 1 were localised to an area best matched by Brodmann area 5, in the Postcentral Gyrus, parietal lobe. The time course of this difference, at the bottom shows the slightly right-oriented localisation of these differences.
+:::
+
+## Resting state data
+
+- We also measured resting state EEG (eyes open and closed)
+- Divided into regions of interest (ROIs)
+- 
