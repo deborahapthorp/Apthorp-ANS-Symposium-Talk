@@ -298,7 +298,10 @@ KSSDataPlot
 - Best Match - Brodmann area 5, postcentral gyrus, parietal lobe
 
 ::: notes
-Using eLORETA, the sources of the differences in ERP amplitude obtained in Analysis 1 were localised to an area best matched by Brodmann area 5, in the Postcentral Gyrus, parietal lobe. The time course of this difference, at the bottom shows the slightly right-oriented localisation of these differences.
+The ERPs were converted to source densities and entered into eLORETA, to localize the sources of the differences in ERP amplitude obtained in Analysis 1. The source was localised to an area best matched by Brodmann area 5, in the Postcentral Gyrus, parietal lobe, or the somatosensory association cortex. The time course of this difference, at the bottom shows the slightly right-oriented localisation of these differences.
+
+Research reveals that BA5 influences the primary motor cortex’s excitability, affecting hand motor function. However, BA5 has not been identified among those areas involved in sustained attention fMRI studies, such as presupplementary motor area (pre-SMA) and the dorsal premotor cortex. The difference in activity in this area could be related to differences in latency rather than amplitude. As the P3 peak is partly response-locked, the differences in activity in the somatosensory association cortex may reflect differences in the speed of movement preparation or execution. 
+Further analysis of the data could elaborate this hypothesis by studying the lateralized readiness potential, and possible differences in amplitude and starting points.
 :::
 
 ## Resting state data
@@ -379,5 +382,11 @@ RSalphaPlot + RSdeltaPlot
 
 ```
 ## Conclusions
+
+- Mild sleep restriction caused changes in resting state frequencies in right central areas
+- Small increase in reaction times in a vigilance task (PVT)
+- Increase in ERPs (P3) at central sites during the PVT
+- Source localisation using eLORETA suggests the post-central gyrus (Brodmann Area 5) as the origin of this difference
+- This area has not previously been associated with sustained attention - motor preparation/execution differences? 
 
 # Questions?{background-color="black" background-image="images/dogs.png"}
