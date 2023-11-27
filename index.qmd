@@ -305,4 +305,79 @@ Using eLORETA, the sources of the differences in ERP amplitude obtained in Analy
 
 - We also measured resting state EEG (eyes open and closed)
 - Divided into regions of interest (ROIs)
-- 
+- L & R frontal, central, occipital
+- Significant increases in alpha & decreases in delta relative frequency after sleep restriction
+- Most prominent in right central ROI (C4, T4, CP4, TP8)
+
+## Resting state changes
+
+
+```{r resting-state,  echo = FALSE}
+
+
+library(patchwork)
+
+FreqData = read.csv ('RelativeFreqsBySleep.csv')
+
+NS_alpha <- filter(FreqData, Condition =="NS", Frequency.band =="Alpha")
+SR_alpha <- filter(FreqData, Condition =="SR", Frequency.band =="Alpha")
+NS_delta <- filter(FreqData, Condition =="NS", Frequency.band =="Delta")
+SR_delta <- filter(FreqData, Condition =="SR", Frequency.band =="Delta")
+
+df_1x1_alpha <- data_1x1(
+  
+  array_1 = NS_alpha$Relative.Frequency,
+  array_2 = SR_alpha$Relative.Frequency,
+  jit_distance = .09,
+  jit_seed = 321) 
+
+df_1x1_delta <- data_1x1(
+  
+  array_1 = NS_delta$Relative.Frequency,
+  array_2 = SR_delta$Relative.Frequency,
+  jit_distance = .09,
+  jit_seed = 321) 
+
+
+RSalphaPlot <- raincloud_1x1_repmes(
+  data = df_1x1_alpha,
+  colors = (c('aquamarine3', 'mediumorchid')),
+  fills = (c('aquamarine3', 'mediumorchid')),
+  size = 1,
+  alpha = .6,
+  align_clouds = FALSE) +
+  
+  scale_x_continuous(breaks=c(1,2), labels=c("NS", "SR"), limits=c(0, 3)) +
+  xlab("Sleep Condition") + 
+  ylab("Relative Right Central Alpha Power") +
+  theme_classic()
+
+RSdeltaPlot <- raincloud_1x1_repmes(
+  data = df_1x1_delta,
+  colors = (c('aquamarine3', 'mediumorchid')),
+  fills = (c('aquamarine3', 'mediumorchid')),
+  size = 1,
+  alpha = .6,
+  align_clouds = FALSE) +
+  
+  scale_x_continuous(breaks=c(1,2), labels=c("NS", "SR"), limits=c(0, 3)) +
+  xlab("Sleep Condition") + 
+  ylab("Relative Right Central Delta Power") +
+  theme_classic()
+
+```
+
+
+```{r RS_plots, dev.args = list(bg = 'transparent')}
+#| echo: false
+#| fig-height: 5
+#| fig-cap: "Relative alpha and delta frequencies in right central ROI"
+#| cap-location: top
+
+RSalphaPlot + RSdeltaPlot
+
+
+```
+## Conclusions
+
+# Questions?{background-color="black" background-image="images/dogs.png"}
