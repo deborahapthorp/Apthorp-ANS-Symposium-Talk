@@ -328,7 +328,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-background-image="/images/rainbow.png" data-background-opacity="0.5" data-background-size="fill" class="quarto-title-block center">
   <h1 class="title">Sleep restriction affects vigilant attention:</h1>
   <p class="subtitle">Behavioural and neural correlates</p>
 
@@ -337,17 +337,61 @@
 <div class="quarto-title-author-name">
 Deborah Apthorp &amp; Lourdes Machin 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            University of New England, NSW
+          </p>
+    </div>
 </div>
 
+</section>
+<section id="stages-of-sleep" class="slide level2">
+<h2>Stages of sleep</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Traditional hypnogram</a></li><li><a href="#tabset-1-2">Fitbit</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p><img data-src="images/Sleep-Stages.jpeg"></p>
+</div>
+<div id="tabset-1-2">
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="images/fitbit_sleep.jpg"></p>
+</div><div class="column" style="width:60%;">
+<ul>
+<li class="fragment">Modern wearable technology enables easy sleep tracking</li>
+<li class="fragment">Accuracy not as good as polysomnography, but improving</li>
+<li class="fragment">Enables inexpensive in-home sleep assessments</li>
+<li class="fragment">Big data?</li>
+<li class="fragment">Also relatively cheap</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sleep-restriction-vs.-sleep-deprivation" class="slide level2">
+<h2>Sleep restriction vs.&nbsp;sleep deprivation</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/yawn.png" class="fragment fade-in"></p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Much research looks at total sleep deprivation (no sleep overnight)</li>
+<li class="fragment">Profound effects on cognition (memory, attention, etc)</li>
+<li class="fragment">But sleep restriction (less sleep than usual) is much more common</li>
+<li class="fragment">Effects on cognition not as well researched</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="background" class="slide level2">
 <h2>Background</h2>
 <ul>
-<li class="fragment">These data were originally collected as part of an Honours project by Lucienne Shenfield</li>
+<li class="fragment">These data were originally collected as part of an Honours project by Lucienne Shenfield at ANU</li>
 <li class="fragment">Now working as a clinical psychologist specialising in sleep</li>
 <li class="fragment">Some of this work is now published</li>
-<li class="fragment">What we’ll mainly talk about is the work of another Honours student Lourdes Machin</li>
+<li class="fragment">What we’ll mainly talk about is the work of another Honours student Lourdes Machin (UNE, 2022)</li>
 </ul>
 <div class="footer">
 <p>Shenfield, L., Beanland, V., Filtness, A., &amp; Apthorp, D. (2020).</p>
@@ -367,7 +411,7 @@ Deborah Apthorp &amp; Lourdes Machin
 <p>“Attention is psychology’s weapon of mass explanation” - David Burr, personal communication</p>
 </div>
 </section>
-<section id="participants" class="slide level2 smaller">
+<section id="participants" class="slide level2">
 <h2>Participants</h2>
 <ul>
 <li class="fragment"><p>Inclusion criteria: 18 – 65 years; regular sleep 7-8 h/night</p></li>
@@ -413,18 +457,26 @@ Deborah Apthorp &amp; Lourdes Machin
 </section>
 <section id="eeg" class="slide level2">
 <h2>EEG</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li class="fragment">Compumedics NuAmps 40-channel EEG system</li>
 <li class="fragment">Electrodes 10/20 system</li>
 <li class="fragment">Electrode maximum impedance: 5 <span class="math inline">\(k\Omega\)</span></li>
 <li class="fragment">Signal recorded at 1000 Hz</li>
-<li class="fragment">NuAmps digital amplifier; Curry 7.0.9 software</li>
+<li class="fragment">NuAmps digital amplifier</li>
+<li class="fragment">Curry 7.0.9 software</li>
+<li class="fragment">Resting state and during-task recording</li>
 </ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/EEG_setup.png" class="fragment fade-in"></p>
+</div>
+</div>
 </section>
 <section id="eeg-preprocessing" class="slide level2">
 <h2>EEG preprocessing</h2>
 <div class="columns">
-<div class="column" style="width:46%;">
+<div class="column" style="width:50%;">
 <div class="cell" data-reveal="true">
 <div class="cell-output-display">
 <div>
@@ -442,7 +494,7 @@ Deborah Apthorp &amp; Lourdes Machin
 </div>
 </div>
 </div>
-</div><div class="column" style="width:54%;">
+</div><div class="column" style="width:50%;">
 <div class="cell" data-reveal="true">
 <div class="cell-output-display">
 <div>
@@ -470,19 +522,19 @@ Deborah Apthorp &amp; Lourdes Machin
 <section id="subjective-sleepiness" class="slide level2">
 <h2>Subjective sleepiness</h2>
 
-<img data-src="index_files/figure-revealjs/KSS_plot-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Mean KSS sleepiness ratings by sleep condition</p></section>
-<section id="erps" class="slide level2">
-<h2>ERPs</h2>
+<img data-src="index_files/figure-revealjs/KSS_plot-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Mean Karolinska Sleepiness Scale scores by sleep condition</p></section>
+<section id="erp-data" class="slide level2">
+<h2>ERP data</h2>
 
 <img data-src="images/ERP1.png" class="r-stretch quarto-figure-center"><p class="caption">ERP amplitude differences: ERP Topographic Maps 250-500 ms</p></section>
-<section id="erps---differences---pz" class="slide level2">
-<h2>ERPs - differences - Pz</h2>
+<section id="erp-data---differences---pz" class="slide level2">
+<h2>ERP data - differences - Pz</h2>
 
-<img data-src="images/Pz_ERP1.png" class="r-stretch quarto-figure-center"><p class="caption">Grey bar shows statistically significant differences in amplitude at the start of P3</p></section>
-<section id="erps---differences---cpz" class="slide level2">
-<h2>ERPs - differences - CPz</h2>
+<img data-src="images/Pz_ERP2.png" class="r-stretch quarto-figure-center"><p class="caption">Grey bar shows statistically significant differences in amplitude at the start of P3</p></section>
+<section id="erp-data---differences---cpz" class="slide level2">
+<h2>ERP data - differences - CPz</h2>
 
-<img data-src="images/CPz_ERP1.png" class="r-stretch quarto-figure-center"><p class="caption">Grey bar shows statistically significant differences in amplitude at the start of P3</p></section>
+<img data-src="images/CPz_ERP2.png" class="r-stretch quarto-figure-center"><p class="caption">Grey bar shows statistically significant differences in amplitude at the start of P3</p></section>
 <section id="source-localisation---ns---sr" class="slide level2">
 <h2>Source localisation - NS - SR</h2>
 
@@ -526,7 +578,8 @@ Deborah Apthorp &amp; Lourdes Machin
 </div>
 </div>
 <ul>
-<li class="fragment">Best Match - Brodmann area 5, postcentral gyrus, parietal lobe</li>
+<li class="fragment"><p>Best Match - Brodmann area 5, postcentral gyrus, parietal lobe</p></li>
+<li class="fragment"><p>Somatosensory cortex - motor preparation affected?</p></li>
 </ul>
 <aside class="notes">
 <p>The ERPs were converted to source densities and entered into eLORETA, to localize the sources of the differences in ERP amplitude obtained in Analysis 1. The source was localised to an area best matched by Brodmann area 5, in the Postcentral Gyrus, parietal lobe, or the somatosensory association cortex. The time course of this difference, at the bottom shows the slightly right-oriented localisation of these differences.</p>
@@ -545,6 +598,8 @@ Deborah Apthorp &amp; Lourdes Machin
 </section>
 <section id="resting-state-data" class="slide level2">
 <h2>Resting state data</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li class="fragment">We also measured resting state EEG (eyes open and closed)</li>
 <li class="fragment">Divided into regions of interest (ROIs)</li>
@@ -552,11 +607,15 @@ Deborah Apthorp &amp; Lourdes Machin
 <li class="fragment">Significant increases in alpha &amp; decreases in delta relative frequency after sleep restriction</li>
 <li class="fragment">Most prominent in right central ROI (C4, T4, CP4, TP8)</li>
 </ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/ROIs_2.png" class="fragment fade-in"></p>
+</div>
+</div>
 </section>
 <section id="resting-state-changes" class="slide level2">
 <h2>Resting state changes</h2>
 
-<img data-src="index_files/figure-revealjs/RS_plots-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Relative alpha and delta frequencies in right central ROI</p></section>
+<img data-src="index_files/figure-revealjs/RS_plots-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Relative alpha and delta frequencies in right central ROI - eyes closed</p></section>
 <section id="conclusions" class="slide level2">
 <h2>Conclusions</h2>
 <ul>
@@ -751,9 +810,9 @@ Deborah Apthorp &amp; Lourdes Machin
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1600,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,

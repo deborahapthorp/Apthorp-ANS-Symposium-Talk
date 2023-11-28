@@ -1,10 +1,17 @@
 ---
 title: "Sleep restriction affects vigilant attention:"
 subtitle: "Behavioural and neural correlates"
+title-slide-attributes:
+  data-background-image: /images/rainbow.png
+  data-background-size: fill
+  data-background-opacity: "0.5"
 author: "Deborah Apthorp & Lourdes Machin"
+institute: "University of New England, NSW"
 format: 
   revealjs: 
     theme: sky
+    width: 1600
+    height: 900
     incremental: true
     preview-links: auto
     slide-number: true
@@ -13,12 +20,66 @@ format:
 editor: source
 ---
 
+## Stages of sleep
+
+::: {.panel-tabset}
+
+### Traditional hypnogram 
+
+![](images/Sleep-Stages.jpeg)
+
+### Fitbit
+
+::: columns
+::: {.column width="40%"}
+
+![](images/fitbit_sleep.jpg)
+:::
+
+::: {.column width="60%"}
+
+- Modern wearable technology enables easy sleep tracking
+- Accuracy not as good as polysomnography, but improving 
+- Enables inexpensive in-home sleep assessments
+- Big data?
+- Also relatively cheap
+
+:::
+
+:::
+
+:::
+
+
+## Sleep restriction vs. sleep deprivation
+
+::: columns
+::: {.column width="50%"}
+
+![](images/yawn.png){.fragment .fade-in}
+
+
+:::
+
+:::{.column width="50%"}
+
+- Much research looks at total sleep deprivation (no sleep overnight)
+- Profound effects on cognition (memory, attention, etc)
+- But sleep restriction (less sleep than usual) is much more common
+- Effects on cognition not as well researched
+
+:::
+
+:::
+
+
+
 ## Background
 
--   These data were originally collected as part of an Honours project by Lucienne Shenfield
+-   These data were originally collected as part of an Honours project by Lucienne Shenfield at ANU
 -   Now working as a clinical psychologist specialising in sleep
 -   Some of this work is now published
--   What we'll mainly talk about is the work of another Honours student Lourdes Machin
+-   What we'll mainly talk about is the work of another Honours student Lourdes Machin (UNE, 2022)
 
 ::: footer
 Shenfield, L., Beanland, V., Filtness, A., & Apthorp, D. (2020).
@@ -38,7 +99,7 @@ The impact of sleep loss on sustained and transient attention: An EEG study. [Pe
 "Attention is psychology's weapon of mass explanation" - David Burr, personal communication
 :::
 
-## Participants {.smaller}
+## Participants
 
 -   Inclusion criteria: 18 -- 65 years; regular sleep 7-8 h/night
 
@@ -132,16 +193,31 @@ SleepDataPlot
 
 ## EEG
 
+::: columns
+
+::: {.column width="60%"}
 -   Compumedics NuAmps 40-channel EEG system
 -   Electrodes 10/20 system
 -   Electrode maximum impedance: 5 $k\Omega$
 -   Signal recorded at 1000 Hz
--   NuAmps digital amplifier; Curry 7.0.9 software
+-   NuAmps digital amplifier
+-   Curry 7.0.9 software
+-   Resting state and during-task recording
+
+:::
+
+::: {.column width="40%"}
+
+![](images/EEG_setup.png){.fragment .fade-in}
+
+:::
+
+:::
 
 ## EEG preprocessing
 
 ::: columns
-::: {.column width="46%"}
+::: {.column width="50%"}
 ```{mermaid}
 flowchart TD
   A[1. Import data, event markers, channel locations into EEGLAB] --> B[2. Down-sample EEG data to 256 Hz]
@@ -154,7 +230,7 @@ flowchart TD
 ```
 :::
 
-::: {.column width="54%"}
+::: {.column width="50%"}
 ```{mermaid}
 flowchart TD
   A(8. Visual inspection of  channel plots. Removal of large artifacts ) --> B(9. Run independent components analysis )
@@ -252,22 +328,22 @@ PVTDataPlot
 ```{r KSS_plot, dev.args = list(bg = 'transparent')}
 #| echo: false
 #| fig-height: 5
-#| fig-cap: "Mean KSS sleepiness ratings by sleep condition"
+#| fig-cap: "Mean Karolinska Sleepiness Scale scores by sleep condition"
 #| cap-location: top
 KSSDataPlot
 ```
 
-## ERPs
+## ERP data
 
 ![ERP amplitude differences: ERP Topographic Maps 250-500 ms](images/ERP1.png)
 
-## ERPs - differences - Pz
+## ERP data - differences - Pz
 
-![Grey bar shows statistically significant differences in amplitude at the start of P3](images/Pz_ERP1.png)
+![Grey bar shows statistically significant differences in amplitude at the start of P3](images/Pz_ERP2.png)
 
-## ERPs - differences - CPz
+## ERP data - differences - CPz
 
-![Grey bar shows statistically significant differences in amplitude at the start of P3](images/CPz_ERP1.png)
+![Grey bar shows statistically significant differences in amplitude at the start of P3](images/CPz_ERP2.png)
 
 ## Source localisation - NS - SR
 
@@ -295,7 +371,9 @@ KSSDataPlot
 
 :::
 
-- Best Match - Brodmann area 5, postcentral gyrus, parietal lobe
+- Best Match - Brodmann area 5, postcentral gyrus, parietal lobe 
+
+- Somatosensory cortex - motor preparation affected? 
 
 ::: notes
 The ERPs were converted to source densities and entered into eLORETA, to localize the sources of the differences in ERP amplitude obtained in Analysis 1. The source was localised to an area best matched by Brodmann area 5, in the Postcentral Gyrus, parietal lobe, or the somatosensory association cortex. The time course of this difference, at the bottom shows the slightly right-oriented localisation of these differences.
@@ -306,11 +384,24 @@ Further analysis of the data could elaborate this hypothesis by studying the lat
 
 ## Resting state data
 
+
+::: columns
+::: {.column width="60%"}
 - We also measured resting state EEG (eyes open and closed)
 - Divided into regions of interest (ROIs)
 - L & R frontal, central, occipital
 - Significant increases in alpha & decreases in delta relative frequency after sleep restriction
 - Most prominent in right central ROI (C4, T4, CP4, TP8)
+
+:::
+
+::: {.column width="40%"}
+
+![](images/ROIs_2.png){.fragment .fade-in}
+
+:::
+
+:::
 
 ## Resting state changes
 
@@ -374,8 +465,8 @@ RSdeltaPlot <- raincloud_1x1_repmes(
 ```{r RS_plots, dev.args = list(bg = 'transparent')}
 #| echo: false
 #| fig-height: 5
-#| fig-cap: "Relative alpha and delta frequencies in right central ROI"
-#| cap-location: top
+#| fig-cap: "Relative alpha and delta frequencies in right central ROI - eyes closed"
+
 
 RSalphaPlot + RSdeltaPlot
 
