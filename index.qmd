@@ -618,5 +618,6 @@ p3
 - Increase in ERPs (P3) at central sites during the PVT
 - Source localisation using eLORETA suggests the post-central gyrus (Brodmann Area 5) as the origin of this difference
 - This area has not previously been associated with sustained attention - motor preparation/execution differences? 
+- Individual variations in effects of sleep restriction - behavioural and neural effects correlate
 
 # Questions?{background-color="black" background-image="images/dogs.png"}
