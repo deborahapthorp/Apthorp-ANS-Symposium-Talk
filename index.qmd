@@ -53,10 +53,10 @@ editor: source
 
 ## Sleep restriction vs. sleep deprivation
 
-::: columns
-::: {.column width="50%"}
+::: columns 
+::: {.column width="50%" .fragment .fade-in}
 
-![](images/yawn.png){.fragment .fade-in}
+![Sleep loss can cause daytime sleepiness (image credit: Jude Conning Photography)](images/yawn.png)
 
 
 :::
@@ -472,6 +472,102 @@ RSalphaPlot + RSdeltaPlot
 
 
 ```
+
+## Individual variation in effects of sleep restriction
+
+```{r correlations,  echo = FALSE}
+
+library(janitor)
+corData <- read_csv("Exp2_change_correlations.csv")
+corData <- clean_names(corData)
+corData$rt_change_ms <- corData$rt_change*1000
+
+p1 <- ggplot(corData, aes(x=alpha_change_rc, y=rt_change_ms)) +
+  geom_point(shape=1) +    # Use hollow circles
+  geom_smooth(method=lm,color="black") +  # Add linear regression line 
+  #  (by default includes 95% confidence region)
+  labs(x="Right central alpha change (SR - NS)", y = "RT change (SR - NS) - milliseconds")+
+  theme_classic() 
+
+p1 <- p1  + theme(
+    panel.background = element_rect(fill='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent') #transparent legend panel
+  )
+
+
+p2 <- ggplot(corData, aes(x=delta_change_rc, y=rt_change_ms)) +
+  geom_point(shape=1) +    # Use hollow circles
+  geom_smooth(method=lm,color="black") +  # Add linear regression line 
+  #  (by default includes 95% confidence region)
+  labs(x="Right central delta change (SR - NS)", y = "RT change (SR - NS) - milliseconds")+
+  theme_classic() 
+
+p2 <- p2  + theme(
+    panel.background = element_rect(fill='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent') #transparent legend panel
+  )
+
+p3 <- ggplot(corData, aes(x=kss_change, y=rt_change_ms)) +
+  geom_point(shape=1) +    # Use hollow circles
+  geom_smooth(method=lm,color="black") +  # Add linear regression line 
+  #  (by default includes 95% confidence region)
+  labs(x="Subjective sleepiness change", y = "RT change (SR - NS) - milliseconds")+
+  theme_classic() 
+
+p3 <- p3  + theme(
+    panel.background = element_rect(fill='transparent'), #transparent panel bg
+    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+    panel.grid.major = element_blank(), #remove major gridlines
+    panel.grid.minor = element_blank(), #remove minor gridlines
+    legend.background = element_rect(fill='transparent'), #transparent legend bg
+    legend.box.background = element_rect(fill='transparent') #transparent legend panel
+  )
+
+
+```
+
+
+::: columns
+::: {.column width="33%"}
+```{r correlation_plots, dev.args = list(bg = 'transparent')}
+#| echo: false
+#| fig-height: 5
+#| fig-width: 5
+#| fig-cap: "Relative alpha change"
+p1
+```
+
+:::
+
+::: {.column width="33%"}
+```{r correlation_plots2, dev.args = list(bg = 'transparent')}
+#| echo: false
+#| fig-height: 5
+#| fig-width: 5
+#| fig-cap: "Relative delta change"
+p2
+```
+:::
+
+::: {.column width="33%"}
+```{r correlation_plots3, dev.args = list(bg = 'transparent')}
+#| echo: false
+#| fig-height: 5
+#| fig-width: 5
+#| fig-cap: "Subjective sleepiness change"
+p3
+```
+:::
+
+:::
 ## Conclusions
 
 - Mild sleep restriction caused changes in resting state frequencies in right central areas
