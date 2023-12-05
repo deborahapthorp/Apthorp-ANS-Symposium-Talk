@@ -38,7 +38,8 @@ editor: source
 
 ::: {.column width="60%"}
 
-- Modern wearable technology enables easy sleep tracking
+- Staging sleep involves classifying the EEG signal, often still by hand
+- Modern wearable technology enables much easier sleep tracking
 - Accuracy not as good as polysomnography, but improving 
 - Enables inexpensive in-home sleep assessments
 - Big data?
@@ -67,6 +68,7 @@ editor: source
 - Profound effects on cognition (memory, attention, etc)
 - But sleep restriction (less sleep than usual) is much more common
 - Effects on cognition not as well researched
+- But this type of sleep loss is much more common! 
 
 :::
 
@@ -76,10 +78,28 @@ editor: source
 
 ## Background
 
+::: columns 
+::: {.column width="60%"}
+
 -   These data were originally collected as part of an Honours project by Lucienne Shenfield at ANU
 -   Now working as a clinical psychologist specialising in sleep
 -   Some of this work is now published
 -   What we'll mainly talk about is the work of another Honours student Lourdes Machin (UNE, 2022)
+
+:::
+
+::: {.column width="40%"}
+
+:::{.r-stack}
+![](images/Lucienne.jpeg){.fragment width="360" height="340"}
+![](images/Lourdes.jpeg){.fragment width="360" height="360"}
+
+:::
+:::
+
+
+
+:::
 
 ::: footer
 Shenfield, L., Beanland, V., Filtness, A., & Apthorp, D. (2020).
