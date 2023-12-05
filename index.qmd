@@ -79,7 +79,7 @@ editor: source
 ## Background
 
 ::: columns 
-::: {.column width="60%"}
+::: {.column width="55%"}
 
 -   These data were originally collected as part of an Honours project by Lucienne Shenfield at ANU
 -   Now working as a clinical psychologist specialising in sleep
@@ -88,7 +88,7 @@ editor: source
 
 :::
 
-::: {.column width="40%"}
+::: {.column width="45%"}
 
 :::{.r-stack}
 ![](images/Lucienne.jpeg){.fragment width="360" height="340"}
@@ -139,7 +139,7 @@ The impact of sleep loss on sustained and transient attention: An EEG study. [Pe
 
 -   Within-subjects: Normal sleep (NS) and Sleep-restricted (SR)
 -   Sleep restriction: Delay bedtime by 3 hrs, set alarm for 5 hrs later
--   Counterbalanced order
+-   Counterbalanced order 
 -   Sleep monitoring: Sleep diary and FitBits
 -   Tasks: Attentional Blink (AB) and Psychomotor Vigilance Task (PVT)
 -   EEG: Resting state and ERP (during tasks)
