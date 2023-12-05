@@ -20,6 +20,16 @@ format:
 editor: source
 ---
 
+## Talk information
+
+- This talk was written in [Quarto](https://quarto.org/) (R Markdown/R Studio) & is available online
+
+:::{.fragment .fade-in}
+
+![[bit.ly/ANS-Sleep](https/www.bit.ly/ANS-Sleep)](images/QRcode.png){fig-align="center"}
+
+:::
+
 ## Stages of sleep
 
 ::: {.panel-tabset}
