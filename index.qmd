@@ -64,7 +64,9 @@ editor: source
 ::: notes
 The gold standard of sleep measurement is, of course, polysomnography, where a patient stays overnight in a fully-equippped sleep lab and has continuous EEG recorded. This is then analysed with a variety of techniques and sleep is divided into stages based on patterns in the EEG - as you no doubt already know, there's REM seep and three stages of non-REM sleep, N1 and N2, known as light sleep, and N3 which is deep, delta or slow-wave sleep. 
 
-Most of us won't have the time or resources to spend a night or two in a sleep lab, but nearly everyone now has a smart watch and these can do a reasonable job of measuring sleep stages based on physical signals such as movement and heart rate. 
+Most of us won't have the time or resources to spend a night or two in a sleep lab, but nearly everyone now has a smart watch and these can do a reasonable job of measuring sleep stages based on physical signals such as movement and heart rate.
+
+You'll hear more about this from both Hannah and Laura, including some really exciting stuff about big data from Hannah, and measuring sleep stages in mice from Laura, and in flies from Bruno. 
 
 :::
 
