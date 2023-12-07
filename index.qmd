@@ -61,6 +61,12 @@ editor: source
 
 :::
 
+::: notes
+The gold standard of sleep measurement is, of course, polysomnography, where a patient stays overnight in a fully-equippped sleep lab and has continuous EEG recorded. This is then analysed with a variety of techniques and sleep is divided into stages based on patterns in the EEG - as you no doubt already know, there's REM seep and three stages of non-REM sleep, N1 and N2, known as light sleep, and N3 which is deep, delta or slow-wave sleep. 
+
+Most of us won't have the time or resources to spend a night or two in a sleep lab, but nearly everyone now has a smart watch and these can do a reasonable job of measuring sleep stages based on physical signals such as movement and heart rate. 
+
+:::
 
 ## Sleep restriction vs. sleep deprivation
 
@@ -84,14 +90,17 @@ editor: source
 
 :::
 
+::: notes
+Sleep loss can affect our daytime functioning outside of just sleepiness - it can cause lapses in concentration and microsleeps which are potentially fatal, for instance while driving. There's also a continued reduction in the average hours people are sleeping. In spite of this, the effect of mild sleep loss are much less studied than total sleep deprivation. 
 
+:::
 
 ## Background
 
 ::: columns 
 ::: {.column width="60%"}
 
--   These data were originally collected as part of an Honours project by Lucienne Shenfield at ANU
+-   These data were originally collected in 2015 as part of an Honours project by Lucienne Shenfield at ANU
 -   Now working as a clinical psychologist specialising in sleep
 -   Some of this work is now published
 -   What we'll mainly talk about is the work of another Honours student Lourdes Machin (UNE, 2022)
@@ -214,6 +223,11 @@ SleepDataPlot
 
 ```
 
+::: notes
+
+So this is just the data showing that people did, in fact, restrict their sleep, and that the sleep diaries largely agreed with the FitBit data. Because this was 2015, FitBits were still relatively new, so we don't have data on people's sleep stages in this study, although that would have been interesting. They did see it as an attraction to do the study, though! We also used the FitBit data to ensure that they were sleeping the regular amount on the non-sleep-restricted nights as per the exclusion criteria. 
+
+:::
 ## Task: Psychomotor Vigilance Task
 
 ::: columns
@@ -241,7 +255,7 @@ SleepDataPlot
 ::: columns
 
 ::: {.column width="60%"}
--   Compumedics NuAmps 40-channel EEG system
+-   Compumedics NuAmps 32-channel EEG system
 -   Electrodes 10/20 system
 -   Electrode maximum impedance: 5 $k\Omega$
 -   Signal recorded at 1000 Hz
@@ -421,7 +435,7 @@ KSSDataPlot
 - Somatosensory cortex - motor preparation affected? 
 
 ::: notes
-The ERPs were converted to source densities and entered into eLORETA, to localize the sources of the differences in ERP amplitude obtained in Analysis 1. The source was localised to an area best matched by Brodmann area 5, in the Postcentral Gyrus, parietal lobe, or the somatosensory association cortex. The time course of this difference, at the bottom shows the slightly right-oriented localisation of these differences.
+The ERPs were converted to source densities and entered into eLORETA, to localize the sources of the differences in ERP amplitude. The source was localised to an area best matched by Brodmann area 5, in the Postcentral Gyrus, parietal lobe, or the somatosensory association cortex. The time course of this difference, at the bottom shows the slightly right-oriented localisation of these differences.
 
 Research reveals that BA5 influences the primary motor cortex’s excitability, affecting hand motor function. However, BA5 has not been identified among those areas involved in sustained attention fMRI studies, such as presupplementary motor area (pre-SMA) and the dorsal premotor cortex. The difference in activity in this area could be related to differences in latency rather than amplitude. As the P3 peak is partly response-locked, the differences in activity in the somatosensory association cortex may reflect differences in the speed of movement preparation or execution. 
 Further analysis of the data could elaborate this hypothesis by studying the lateralized readiness potential, and possible differences in amplitude and starting points.
